@@ -1,0 +1,10 @@
+{{#if errors}}
+  <div class="box content">
+    <p>There was a problem with your input. Please check and try again:</p>
+    <ul>
+      {{#each errors}}
+        <li>{{message}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}

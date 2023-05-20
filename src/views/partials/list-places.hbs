@@ -1,0 +1,29 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Place name</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each category.places}}
+      <tr>
+        <td>{{placename}}</td>
+        <td>Lat: {{latitude}}<br>Lon: {{longitude}}</td>
+        <td style="white-space: pre-line">{{description}}</td>
+        <td>{{categorytitle}}</td>
+        <td>
+          <a href="/category/{{../category._id}}/editplace/{{_id}}" class="ui icon button">
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+          <a href="/category/{{../category._id}}/deleteplace/{{_id}}" class="ui icon button">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

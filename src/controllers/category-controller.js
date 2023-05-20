@@ -46,6 +46,8 @@ export const categoryController = {
     },
   },
 
+  /*
+
   editPlace: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
@@ -82,4 +84,6 @@ export const categoryController = {
       return h.redirect(`/category/${category._id}`);
     },
   },
+
+  */
 };

@@ -2,6 +2,7 @@ import { aboutController } from "./controllers/about-controller.js";
 import { accountController } from "./controllers/account-controller.js";
 import { categoryController } from "./controllers/category-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
+import { placeController } from "./controllers/place-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountController.index },
@@ -22,8 +23,9 @@ export const webRoutes = [
   { method: "GET", path: "/category/{id}", config: categoryController.index },
   { method: "POST", path: "/category/{id}/addplace", config: categoryController.addPlace },
   { method: "GET", path: "/category/{id}/deleteplace/{placeid}", config: categoryController.deletePlace },
-  { method: "GET", path: "/category/{id}/editplace/{placeid}", config: categoryController.editPlace },
-  { method: "POST", path: "/category/{id}/updateplace/{placeid}", config: categoryController.updatePlace },
+
+  { method: "GET", path: "/place/{id}/editplace/{placeid}", config: placeController.index },
+  { method: "POST", path: "/place/{id}/updateplace/{placeid}", config: placeController.updatePlace },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 ];

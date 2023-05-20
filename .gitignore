@@ -1,3 +1,6 @@
+# Temporary image store
+temp.img
+
 # Json files - to keep template without syncing test data
 src/models/json/*.json
 

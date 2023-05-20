@@ -5,7 +5,8 @@
       <th>Location</th>
       <th>Description</th>
       <th>Category</th>
-      <th></th>
+      <th><i class="fas fa-cog"></i></th>
+      <th><i class="fas fa-camera-retro"></i></th>
     </tr>
   </thead>
   <tbody>
@@ -18,10 +19,13 @@
         <td>
           <a href="/place/{{../category._id}}/editplace/{{_id}}" class="ui icon button">
             <i class="fas fa-pencil-alt"></i>
-          </a>
+          </a><br>
           <a href="/category/{{../category._id}}/deleteplace/{{_id}}" class="ui icon button">
             <i class="fas fa-trash"></i>
           </a>
+        </td>
+        <td>
+          {{> place-image}}
         </td>
       </tr>
     {{/each}}

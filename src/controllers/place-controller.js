@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import { imageStore } from "../models/image-store.js";
 import { PlaceSpec } from "../models/joi-schemas.js";
 
 export const placeController = {
@@ -43,6 +44,32 @@ export const placeController = {
       };
       await db.placeStore.updatePlace(place, newPlace);
       return h.redirect(`/category/${category._id}`);
+    },
+  },
+
+  uploadImage: {
+    handler: async function (request, h) {
+      try {
+        const category = await db.categoryStore.getCategoryById(request.params.id);
+        const place = await db.placeStore.getPlaceById(request.params.placeid);
+        const newPlace = place;
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          const url = await imageStore.uploadImage(request.payload.imagefile);
+          newPlace.img = url;
+          await db.placeStore.updatePlace(place, newPlace);
+        }
+        return h.redirect(`/category/${category._id}`);
+      } catch (err) {
+        console.log(err);
+        return h.redirect(`/category/${category._id}`);
+      }
+    },
+    payload: {
+      multipart: true,
+      output: "data",
+      maxBytes: 209715200,
+      parse: true,
     },
   },
 }

@@ -7,6 +7,7 @@ const placeSchema = new Schema({
   latitude: Number,
   longitude: Number,
   description: String,
+  img: String,
   categoryid: {
     type: Schema.Types.ObjectId,
     ref: "Category",

@@ -42,6 +42,7 @@ export const seedData = {
       latitude: 52.540915,
       longitude: 13.414168,
       description: "Homestyle German classics like pork knuckle & schnitzel, plus beer, in an old-fashioned venue.",
+      img: "http://res.cloudinary.com/dtucg3dli/image/upload/v1684583053/dbzl6si71djibpmtvena.jpg",
       categoryid: "->categories.pubs",
       categorytitle: "->categories.pubs.title",
       userid: "->users.carsten"
@@ -51,15 +52,17 @@ export const seedData = {
       latitude: 50.827044,
       longitude: 4.372525,
       description: "Cafe-bar, in the art deco Flagey center, with outdoor seating & guest DJs playing music until late.",
+      img: "http://res.cloudinary.com/dtucg3dli/image/upload/v1684583073/ujrvceozfgsdklhe3ib5.jpg",
       categoryid: "->categories.pubs",
       categorytitle: "->categories.pubs.title",
       userid: "->users.carsten"
     },
     hema: {
-      placename: "HEMA",
+      placename: "HEMA Monnaie/Munt",
       latitude: 50.850507, 
       longitude: 4.353449,
       description: "A department store chain that sells everything you may need.",
+      img: "http://res.cloudinary.com/dtucg3dli/image/upload/v1684583117/u1qmsuderqlgzlker0r2.jpg",
       categoryid: "->categories.shops",
       categorytitle: "->categories.shops.title",
       userid: "->users.berta"

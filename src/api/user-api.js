@@ -92,10 +92,10 @@ export const userApi = {
     handler: async function (request, h) {
       try {
         const user = await db.userStore.getUserByEmail(request.payload.email);
-        const checkPassword = await bcrypt.compare(request.payload.password, user.password);
         if (!user) {
           return Boom.unauthorized("User not found");
         }
+        const checkPassword = await bcrypt.compare(request.payload.password, user.password);
         if (!checkPassword) {
           return Boom.unauthorized("Invalid password");
         }

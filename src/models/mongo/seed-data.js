@@ -5,19 +5,19 @@ export const seedData = {
       firstName: "Carsten",
       lastName: "Flöter",
       email: "carstenfloeter@praxisfloeter.de",
-      password: "eschweiler"
+      password: "$2a$12$0LxD.ItXgFR7SNu8Qr6/zOzeLsNAjwbgHjxuhrgrIPVtlUciUGaJq"
     },
     berta: {
       firstName: "Berta",
       lastName: "Griese",
       email: "berta.g@klavierstunden.de",
-      password: "manoel"
+      password: "$2a$12$G5V6S7pTW5hcvaZ9Xf6e4uNkVv0/yu3CUkRnsoRM8pC8PHQq2PmQS"
     },
     else: {
       firstName: "Else",
       lastName: "Kling",
       email: "else@iswas.de",
-      password: "MeinLeiberEgon"
+      password: "$2a$12$SagLXxZaPoRKTACXiFWjCeW1jfk38cnVJXWnhGDcWZlHx.3dGAFky"
     },
   },
   categories: {

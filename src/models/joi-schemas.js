@@ -29,7 +29,9 @@ export const PlaceSpec = Joi.object()
     longitude: Joi.number().min(-180).max(180).example(-6.260296).required(),
     description: Joi.string().example("Ireland's capital city"),
     categoryid: IdSpec,
-    categorytitle: Joi.string().example("Cities in Europe")
+    categorytitle: Joi.string().example("Cities in Europe"),
+    img: Joi.string(),
+    userid: IdSpec,
   })
   .label("PlaceDetails");
 

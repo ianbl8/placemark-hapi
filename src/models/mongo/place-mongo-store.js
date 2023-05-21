@@ -22,6 +22,11 @@ export const placeMongoStore = {
     return places;
   },
 
+  async getPlacesByUser(id) {
+    const places = await Place.find({ userid: id }).lean();
+    return places;
+  },
+
   async getPlaceById(id) {
     if (id) {
       const place = await Place.findOne({ _id: id }).lean();

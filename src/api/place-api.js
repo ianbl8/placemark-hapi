@@ -26,13 +26,32 @@ export const placeApi = {
     response: { schema: PlaceSpecPlus, failAction: validationError },
   },
 
-  find: {
+  findAll: {
     auth: {
       strategy: "jwt",
     },
     handler: async function (request, h) {
       try {
         const places = await db.placeStore.getAllPlaces();
+        return places;
+      } catch (err) {
+        return Boom.serverUnavailable("Database Error");
+      }
+    },
+    tags: ["api"],
+    description: "Get all place details",
+    notes: "Returns place details (name, location, description etc) for all places",
+    response: { schema: PlaceArray, failAction: validationError },
+  },
+
+  findByUser: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      try {
+        const user = request.auth.credentials;
+        const places = await db.placeStore.getPlacesByUser(user._id);
         return places;
       } catch (err) {
         return Boom.serverUnavailable("Database Error");

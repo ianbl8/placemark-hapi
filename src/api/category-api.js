@@ -28,7 +28,7 @@ export const categoryApi = {
     response: { schema: CategorySpecPlus, failAction: validationError },
   },
 
-  find: {
+  findAll: {
     auth: {
       strategy: "jwt",
     },
@@ -43,6 +43,25 @@ export const categoryApi = {
     tags: ["api"],
     description: "Get all category details",
     notes: "Returns category details (title) for all categories",
+    response: { schema: CategoryArray, failAction: validationError },
+  },
+
+  findByUser: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      try {
+        const user = request.auth.credentials;
+        const categories = await db.categoryStore.getCategoriesByUser(user._id);
+        return categories;
+      } catch (err) {
+        return Boom.serverUnavailable("Database Error");
+      }
+    },
+    tags: ["api"],
+    description: "Get all category details for one user",
+    notes: "Returns category details (title) for one user",
     response: { schema: CategoryArray, failAction: validationError },
   },
 

@@ -53,10 +53,10 @@ export const placeMongoStore = {
       longitude: updatedPlace.longitude,
       latitude: updatedPlace.latitude,
       description: updatedPlace.description,
-      img: updatedPlace.img,
       categoryid: updatedPlace.categoryid,
       categorytitle: updatedPlace.categorytitle,
      });
+     return this.getPlaceById(place._id);
 
   },
 };

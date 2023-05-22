@@ -13,6 +13,7 @@ export const apiRoutes = [
   { method: "GET", path: "/api/categories", config: categoryApi.findByUser },
   { method: "GET", path: "/api/categories/all", config: categoryApi.findAll },
   { method: "GET", path: "/api/categories/{id}", config: categoryApi.findOne },
+  { method: "POST", path: "/api/categories/{id}", config: categoryApi.update },
   { method: "DELETE", path: "/api/categories", config: categoryApi.deleteAll },
   { method: "DELETE", path: "/api/categories/{id}", config: categoryApi.deleteOne },
 

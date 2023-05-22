@@ -54,6 +54,10 @@ export const categoryMongoStore = {
   },
 
   async updateCategory(category, updatedCategory) {
-    await Category.updateOne({ _id: category._id}, { title: updatedCategory.title });
+    await Category.updateOne({ _id: category._id}, {
+      title: updatedCategory.title
+    });
+    return this.getCategoryById(category._id);
   },
+  
 };

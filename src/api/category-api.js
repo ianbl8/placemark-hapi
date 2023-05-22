@@ -30,6 +30,41 @@ export const categoryApi = {
     response: { schema: CategorySpecPlus, failAction: validationError },
   },
 
+  update: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      try {
+        const user = request.auth.credentials;
+        const oldCategory = await db.categoryStore.getCategoryById(request.payload._id);
+        const category = {
+          userid: user._id,
+          title: request.payload.title,
+        };
+        const newCategory = await db.categoryStore.updateCategory(oldCategory, category);
+        if (newCategory) {
+          for (let i = 0; i < newCategory.places.length; i += 1) {
+            newCategory.places[i].categorytitle = request.payload.title;
+            // eslint-disable-next-line no-await-in-loop
+            await db.placeStore.updatePlace(oldCategory.places[i], newCategory.places[i]);
+          };
+          return h.response(newCategory).code(201);
+        }
+        return Boom.badImplementation("error updating category");
+      } catch (err) {
+        return Boom.serverUnavailable("Database Error");
+      }
+    },
+    tags: ["api"],
+    description: "Update a category",
+    notes: "Updates a category and returns its saved details. Also updates the category title for any places within that category.",
+    /*
+    validate: { payload: CategorySpec },
+    response: { schema: CategorySpecPlus, failAction: validationError },
+    */
+  },
+
   findAll: {
     auth: {
       strategy: "jwt",

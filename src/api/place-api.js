@@ -4,15 +4,21 @@ import { IdSpec, PlaceSpec, PlaceSpecPlus, PlaceArray } from "../models/joi-sche
 import { validationError } from "./logger.js";
 
 export const placeApi = {
+
   create: {
     auth: {
       strategy: "jwt",
     },
     handler: async function (request, h) {
       try {
-        const place = await db.placeStore.addPlace(request.params.id, request.payload);
-        if (place) {
-          return h.response(place).code(201);
+        const user = request.auth.credentials;
+        const place = request.payload;
+        place.userid = user._id;
+        place.latitude = Number(request.payload.latitude);
+        place.longitude = Number(request.payload.longitude);
+        const newPlace = await db.placeStore.addPlace(request.payload.categoryid, place);
+        if (newPlace) {
+          return h.response(newPlace).code(201);
         }
         return Boom.badImplementation("error creating place");
       } catch (err) {

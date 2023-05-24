@@ -1,9 +1,11 @@
 <div class="card">
-  <div class="card-image">
-    <figure class="image is-256x256">
-      <img src={{img}}>
-    </figure>
-  </div>
+  {{#each img}}
+    <div class="card-image">
+      <figure class="image is-256x256">
+        <img src={{this}}>
+      </figure>
+    </div>
+  {{/each}}
   <div class="card-content">
     <form action="/place/{{categoryid}}/uploadimage/{{_id}}" method="POST" enctype="multipart/form-data">
       <div id="file-select" class="file has-name is-fullwidth">

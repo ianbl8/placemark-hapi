@@ -55,6 +55,7 @@ export const placeMongoStore = {
       description: updatedPlace.description,
       categoryid: updatedPlace.categoryid,
       categorytitle: updatedPlace.categorytitle,
+      img: updatedPlace.img,
      });
      return this.getPlaceById(place._id);
 

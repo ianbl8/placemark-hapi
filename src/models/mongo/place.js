@@ -7,7 +7,6 @@ const placeSchema = new Schema({
   latitude: Number,
   longitude: Number,
   description: String,
-  img: String,
   categoryid: {
     type: Schema.Types.ObjectId,
     ref: "Category",
@@ -17,6 +16,7 @@ const placeSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  img: [],
 });
 
 export const Place = Mongoose.model("Place", placeSchema);

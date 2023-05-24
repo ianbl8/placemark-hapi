@@ -30,7 +30,7 @@ export const PlaceSpec = Joi.object()
     description: Joi.string().example("Ireland's capital city"),
     categoryid: IdSpec,
     categorytitle: Joi.string().example("Cities in Europe"),
-    img: Joi.string(),
+    img: Joi.array().items(Joi.string()),
     userid: IdSpec,
   })
   .label("PlaceDetails");

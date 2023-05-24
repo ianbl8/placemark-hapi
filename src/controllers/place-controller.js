@@ -56,7 +56,7 @@ export const placeController = {
         const file = request.payload.imagefile;
         if (Object.keys(file).length > 0) {
           const url = await imageStore.uploadImage(request.payload.imagefile);
-          newPlace.img = url;
+          newPlace.img.push(url);
           await db.placeStore.updatePlace(place, newPlace);
         }
         return h.redirect(`/category/${category._id}`);

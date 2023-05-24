@@ -49,6 +49,7 @@ export const placeApi = {
           description: request.payload.description,
           categoryid: category._id,
           categorytitle: category.title,
+          img: request.payload.img,
         };
         const newPlace = await db.placeStore.updatePlace(oldPlace, place);
         if (newPlace) {

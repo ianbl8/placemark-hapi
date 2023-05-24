@@ -5,25 +5,5 @@ to keep track of which houses they have viewed, rejected, or wish to buy.
 
 In short, PlaceMark allows **users** to create **categories** in which they can store **places** of interest.
 
-## Versions
-### v0.5.0-alpha
-***current version***
-- Deployed on Render
-- Initial sample data seeded
-- Swagger documentation updated
+This is **placemark-hapi**, an updated version of the original **placemark** app. This is used by **placemark-hapi**, a Svelte front-end for the application.
 
-### v0.4.0-alpha
-- API implemented
-- Swagger documentation implemented
-- JWT API authentication implemented
-- Static images included
-
-### v0.3.0-alpha
-- MongoDB implemented for data
-
-### v0.2.0
-- Json implemented for data
-- Mocha/Chai testing implemented
-
-### v0.1.0
-- Initial web app using Mem store for data
